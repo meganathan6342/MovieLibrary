@@ -150,19 +150,23 @@ public class movieDAO {
 		}
 		else
 		{
-			PreparedStatement st1 = con.prepareStatement("select movieimage from movie where movieid = ?");
+			/*
+			 * PreparedStatement st1 =
+			 * con.prepareStatement("select movieimage from movie where movieid = ?");
+			 * 
+			 * st1.setInt(1, m.getMovieid());
+			 * 
+			 * ResultSet rs = st1.executeQuery();
+			 * 
+			 * Blob b1 = null;
+			 * 
+			 * while(rs.next()) { b1 = rs.getBlob(1); }
+			 * 
+			 * st.setBlob(6, b1);
+			 */
 			
-			st1.setInt(1, m.getMovieid());
-			
-			ResultSet rs = st1.executeQuery();
-			
-			Blob b1 = null;
-			
-			while(rs.next())
-			{
-				b1 = rs.getBlob(1);
-			}
-			
+			movieDTO m1 = findById(m.getMovieid());
+			Blob b1 = new SerialBlob(m1.getMovieimage());
 			st.setBlob(6, b1);
 			
 		}

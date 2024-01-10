@@ -32,7 +32,7 @@ public class userLogIn extends HttpServlet{
 			   {
 				   if(u2.getUserpassword().equals(userpassword))
 				   {
-					   RequestDispatcher rd = req.getRequestDispatcher("ottHome.jsp");
+					   RequestDispatcher rd = req.getRequestDispatcher("gettingMovies");
 					   try {
 						rd.include(req, resp);
 					} catch (ServletException | IOException e) {
