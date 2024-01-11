@@ -5,11 +5,26 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+a{
+   text-decoration: none;
+}
+a:hover {
+	font-size: x-large;
+}
+div{
+    position: absolute;
+    top: 210px;
+    left: 500px;
+    text-align: center;
+}
+</style>
 
 </head>
 <body>
-<h1 style="text-align: center;">Welcome To PotStar OTT</h1>
-<center><b><i>
+<div>
+<h1 style="text-align: center;">Welcome To Movie Library</h1>
+<b><i>
 <a href="admin.jsp">Admin</a><br><br><br>
 <a href="user.jsp">User</a>
 </i></b><br>
@@ -18,6 +33,6 @@
 <%if(msg!=null){ %>
 <%=msg %>
 <%} %>
-</center>
+</div>
 </body>
 </html>

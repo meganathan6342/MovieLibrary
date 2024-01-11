@@ -7,14 +7,25 @@
 <title>Insert title here</title>
 <style>
 table{
-	border: 1px solid black;
+	border: 2px solid black;
 	background-color: silver;
+}
+.button:hover {
+	background-color: gray;
+}
+div {
+	position: absolute;
+	text-align: center;
+	top: 210px;
+	left: 520px;
 }
 </style>
 </head>
 <body>
+
+<div>
 <form action="userSignUp" method="post">
-<center>
+
 <table>
 <tbody>
 <tr>
@@ -38,11 +49,11 @@ table{
 <td><input type="password" name="userpassword" required="required" placeholder="e.g:Ajgsy&{742_;s}"></td>
 </tr>
 <tr>
-<td><input type="submit"> <input type="reset"></td>
+<td><input type="submit" class="button"> <input type="reset" class="button"></td>
 </tr>
 </tbody>
 </table>
-</center>
+
 </form>
 <%String msg = (String) request.getAttribute("message"); %>
 
@@ -51,6 +62,7 @@ table{
 <%=msg %>
 <%} %>
 
+</div>
 
 </body>
 </html>

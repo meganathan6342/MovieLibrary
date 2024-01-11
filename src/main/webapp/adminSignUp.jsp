@@ -7,14 +7,23 @@
 <title>Insert title here</title>
 <style>
 table {
-	border: 1px solid black;
+	border: 2px solid black;
 	background-color: aqua;
+}
+.button:hover {
+	background-color: gray;
+}
+div {
+	position: absolute;
+	text-align: center;
+	top: 210px;
+	left: 550px;
 }
 </style>
 </head>
 <body>
+<div>
  <form action="adminServlet" method="post">
- <center>
  <table>
  <tbody>
  <tr>
@@ -38,17 +47,17 @@ table {
      <td><input type="password" name="password" required="required" placeholder="e.g:AB@ajk72587"></td>
      </tr>
      <tr>
-     <td><input type="submit"></td>
-     <td><input type="reset"></td>
+     <td><input type="submit" class="button"></td>
+     <td><input type="reset" class="button"></td>
      </tr>
  </tbody>
  </table>
- </center>
  </form>
  
  <% String msg = (String) request.getAttribute("message"); %>
  <%if(msg!=null){%>
  <%=msg %>
  <%} %>
+</div>
 </body>
 </html>

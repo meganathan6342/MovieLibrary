@@ -7,15 +7,25 @@
 <title>Insert title here</title>
 <style>
 table {
-     border: 1px solid black;
+     border: 2px solid black;
      background-color: lime;
+}
+div {
+	position: absolute;
+	text-align: center;
+	top: 120px;
+	left: 500px;
+}
+.button:hover {
+	background-color: gray;
 }
 </style>
 </head>
 <body>
+ <div>
  <h1 style="text-align: center;">Add movies</h1>
  <form action="saveMovie" method="post" enctype="multipart/form-data">
- <center>
+ 
  <table>
  <tbody>
  <tr>
@@ -47,13 +57,14 @@ table {
  <td><input type="file" name="movieimage" required="required"></td>
  </tr>
  <tr>
- <td><input type="submit"><input type="reset"></td>
+ <td><input type="submit" class="button"><input type="reset" class="button"></td>
  </tr>
  </tbody>
  </table><br>
  
  <!-- <a href="adminHome.jsp">Movie_List</a> -->
- </center>
+
  </form>
+ </div>
 </body>
 </html>

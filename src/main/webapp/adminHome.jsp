@@ -19,6 +19,12 @@ td{
      height: 300px;
      width: 250px;
 }
+a{
+    text-decoration: none;
+}
+a:hover {
+	font-size: x-large;
+}
 </style>
 </head>
 <body>
@@ -66,6 +72,6 @@ td{
 <%= msg %>
 <% } %>
 
-<a href="addMovie.jsp">add_Movie</a>
+<a href="addMovie.jsp">Add Movie</a>
 </body>
 </html>

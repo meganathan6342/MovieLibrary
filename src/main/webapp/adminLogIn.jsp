@@ -7,14 +7,23 @@
 <title>Insert title here</title>
 <style>
 table {
-	border: 1px solid black;
+	border: 2px solid black;
 	background-color: aqua;
+}
+.button:hover {
+	background-color: gray;
+}
+div {
+	position: absolute;
+	text-align: center;
+	top: 240px;
+	left: 540px;
 }
 </style>
 </head>
 <body>
-<form action="adminLogIn" method="post">
-<center>
+ <div>
+ <form action="adminLogIn" method="post">
 <table>
 <tbody>
 <tr>
@@ -27,18 +36,18 @@ table {
 </tr>
 <tr>
 <td>
-<input type="submit">
-<input type="reset">
+<input type="submit" class="button">
+<input type="reset" class="button">
 </td>
 </tr>
 </tbody>
 </table>
-</center>
 </form>
 
 <% String msg = (String) request.getAttribute("message"); %>
 <% if(msg!=null){ %>
 <%= msg %>
 <%} %>
+ </div>
 </body>
 </html>
