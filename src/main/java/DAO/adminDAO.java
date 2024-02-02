@@ -6,6 +6,11 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Collection;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Properties;
+import java.util.Set;
 
 import DTO.adminDTO;
 
@@ -67,6 +72,53 @@ public class adminDAO {
 	    	 
     	 return a;
      }
+     
+     public int editAdmin(adminDTO a) throws SQLException, ClassNotFoundException
+     {
+    	 Connection con = getConnection();
+    	 
+    	 PreparedStatement st = con.prepareStatement("update admin set adminname = ?, admincontact = ? where adminemail = ?");
+    	 
+    	 st.setString(1, a.getAdminname());
+    	 st.setLong(2, a.getAdmincontact());
+    	 st.setString(3, a.getAdminemail());
+    	 
+    	 int res = st.executeUpdate();
+    	 return res;
+     }
+
+	public int changePassword(String email, String pass) throws ClassNotFoundException, SQLException 
+	{
+		
+		Connection con = getConnection();
+		
+		PreparedStatement st = con.prepareStatement("update admin set adminpassword = ? where adminemail = ?");
+		
+		st.setString(1, pass);
+		st.setString(2, email);
+		
+		int res = st.executeUpdate();
+		
+		con.close();
+		
+		return res;
+	}
+	
+	public int forgotPasssword(adminDTO admin) throws SQLException, ClassNotFoundException
+	{
+		Connection con = getConnection();
+		
+		PreparedStatement st = con.prepareStatement("update admin set adminpassword = ? where adminemail = ?");
+		
+		st.setString(1, admin.getAdminpassword());
+		st.setString(2, admin.getAdminemail());
+		
+		int res = st.executeUpdate();
+		
+		con.close();
+		
+		return res;
+	}
      
      
      

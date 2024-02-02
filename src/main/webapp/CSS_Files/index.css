@@ -1,0 +1,113 @@
+body{
+    background-image: url("sunset-5333758_1920.jpg");
+    background-size: 100%;
+}
+main{
+    display: flex;
+    height: 80px;
+    background-color: rgba(0,0,255,0.3);
+}
+section > i,h1{
+    color: red;
+}
+#left{
+    width: 5%;
+}
+#mid{
+    width: 70%;
+}
+#right{
+    width: 25%;
+}
+h1{
+    font-size: 40px;
+    line-height: 10px;
+    font-family: sans-serif;
+}
+nav{
+    word-spacing: 20px;
+    position: absolute;
+    line-height: 80px;
+    
+}
+#page{
+	padding: 40px 490px;
+	height: 100vh;
+}
+#admin {
+	height: 50px;
+	width: 108px;
+	border-radius: 50px;
+	border-style: none;
+	background-color: white;
+}
+#admin:hover{
+    background-color: rgba(255,255,255,0.8);
+    background-size: 20px;
+}
+a[id="admin"]{
+    font-size: 25px;
+    text-decoration: none;
+    color: black;
+    font-weight: bolder;
+}
+nav > a{
+	text-decoration: none;
+	font-size: 18px;
+	color: black;
+}
+nav > a:hover{
+    color: rgba(0,0,0,0.6);
+}
+#signup{
+    color: black;
+    text-decoration: none;
+}
+.button {
+	border-radius: 8px;
+}
+.button:hover{
+    background-color: gray;
+    color: white;
+}
+table{
+    border: 10px solid black;
+    border-radius: 25px;
+    border-bottom-style: none;
+    border-left-style: none;
+    text-align: center;
+    padding: 40px 80px;
+    background-color: rgba(255,255,255,0.3);
+}
+td{
+    padding: 10px;
+}
+.inp{
+    border-top-style: none;
+    border-left-style: none;
+    border-right-style: none;
+    border-radius: 4px;
+    background-color: rgba(255,255,255,0.6);
+}
+fieldset {
+	border-bottom-style: none;
+	border-left-style: none;
+	border-right-style: none;
+	text-align: center;
+}
+footer{
+    background-color: white;
+    display: flex;
+    height: 100px;
+}
+footer > section{
+    line-height: 70px;
+    word-spacing: 20px;
+}
+footer > section > a{
+    text-decoration: none;
+    color: black;
+}
+footer > section > a:hover{
+    color: gray;
+}

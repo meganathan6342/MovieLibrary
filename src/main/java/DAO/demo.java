@@ -1,15 +1,15 @@
 package DAO;
 
-import java.sql.SQLException;
-
-import DTO.adminDTO;
+import java.util.Properties;
 
 public class demo {
-   
-	  public static void main(String[] args) throws ClassNotFoundException, SQLException {
-		  String email = "meganathanr2000@gmail.com";
-		  adminDAO a2 = new adminDAO();
-		  adminDTO a1 = a2.findByEmail(email);
-		  System.out.println(a1);
+
+	public static void main(String[] args) {
+		Properties p = new Properties();
+        p.put("a", "mega");
+        p.put("b", "nathan");
+        
+        System.out.println(p.getProperty("a"));
+        System.out.println(p.getProperty("b"));
 	}
 }

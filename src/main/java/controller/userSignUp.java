@@ -1,4 +1,4 @@
-package JServlets;
+package controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -41,7 +41,7 @@ public class userSignUp extends HttpServlet{
 			if(res>0)
 			   {
 				   req.setAttribute("message", "Sign Up is done suceessfully..!");
-				   RequestDispatcher rd = req.getRequestDispatcher("Home.jsp");
+				   RequestDispatcher rd = req.getRequestDispatcher("index.jsp");
 				   rd.include(req, resp);
 			   }
 			   else

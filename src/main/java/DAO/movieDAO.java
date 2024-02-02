@@ -175,5 +175,100 @@ public class movieDAO {
 		
 		con.close();
 	}
+
+	public int saveDownload(movieDTO m, String useremail) throws ClassNotFoundException, SQLException 
+	{
+		Connection con = getConnection();
+		
+		String query = "insert into moviedownloads (moviename, movierating, movieprice, moviegenre, movielanguage, movieimage, useremail, movieid) values(?, ?, ?, ?, ?, ?, ?, ?)";
+		
+		PreparedStatement st = con.prepareStatement(query);
+		st.setString(1, m.getMoviename());
+		st.setDouble(2, m.getMovierating());
+		st.setDouble(3, m.getMovieprice());
+		st.setString(4, m.getMoviegenre());
+		st.setString(5, m.getMovielanguage());
+		
+		Blob img = new SerialBlob(m.getMovieimage());
+		st.setBlob(6, img);
+		st.setString(7, useremail);
+		st.setInt(8, m.getMovieid());
+		
+		int res = st.executeUpdate();
+		con.close();
+		
+		return res;
+	}
+
+	public boolean findDownloadByEmail(String email, int movieid) throws ClassNotFoundException, SQLException 
+	{
+		Connection con = getConnection();
+		
+		PreparedStatement st = con.prepareStatement("select movieid from moviedownloads where useremail = ?");
+		st.setString(1, email);
+		
+		ResultSet rs = st.executeQuery();
+		int id = 0;
+		while(rs.next())
+		{
+			id = rs.getInt(1);
+			if(movieid == id)
+			{
+				return false;
+			}
+		}
+		con.close();
+		
+		return true;
+	}
+	
+	public List<movieDTO> getAllDownloads(String user)
+	  {
+		List<movieDTO> l = null; 
+		  try {
+			Connection con = getConnection();
+			
+			PreparedStatement st = con.prepareStatement("select * from moviedownloads where useremail = ?");
+			st.setString(1, user);
+			
+			ResultSet rs = st.executeQuery();
+			l = new ArrayList<movieDTO>();
+			
+			while(rs.next())
+			{
+				movieDTO m = new movieDTO();
+				m.setMovieid(rs.getInt(9));
+				m.setMoviename(rs.getString(2));
+				m.setMovierating(rs.getDouble(3));
+				m.setMovieprice(rs.getDouble(4));
+				m.setMoviegenre(rs.getString(5));
+				m.setMovielanguage(rs.getString(6));
+				Blob b = rs.getBlob(7);
+				byte[] img = b.getBytes(1, (int) b.length());
+				m.setMovieimage(img);
+				
+				l.add(m);
+			}
+		} catch (ClassNotFoundException | SQLException e) {
+			
+			e.printStackTrace();
+		}
+		  
+		  return l;
+	  }
+	
+	public int deleteDownload(int id, String user) throws ClassNotFoundException, SQLException
+	{
+		Connection con = getConnection();
+		
+		PreparedStatement st = con.prepareStatement("delete from moviedownloads where movieid = ? and useremail = ?");
+		st.setInt(1, id);
+		st.setString(2, user);
+		
+		int res = st.executeUpdate();
+		con.close();
+		
+		return res;
+	}
 	  
 }

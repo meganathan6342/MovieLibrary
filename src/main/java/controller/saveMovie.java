@@ -1,4 +1,4 @@
-package JServlets;
+package controller;
 
 import java.io.IOException;
 
@@ -44,7 +44,7 @@ public class saveMovie extends HttpServlet{
 		m2.saveMovie(m1);
 		req.setAttribute("movies", m2.getAllMovies());
 		
-		RequestDispatcher rd = req.getRequestDispatcher("adminHome.jsp");
+		RequestDispatcher rd = req.getRequestDispatcher("adminPage.jsp");
 		rd.include(req, resp);
 		
 		

@@ -1,4 +1,4 @@
-package JServlets;
+package controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -23,15 +23,16 @@ public class userLogIn extends HttpServlet{
 		   String userpassword = req.getParameter("userpassword");
 		   
 		   userDAO u1 = new userDAO();
-		   userDTO u2;
+		   
 		try {
 			
-			u2 = u1.findByEmail(useremail);
+			userDTO u2 = u1.findByEmail(useremail);
 			
 			if(u2.getUseremail()!=null)
 			   {
 				   if(u2.getUserpassword().equals(userpassword))
 				   {
+					   req.setAttribute("user", useremail);
 					   RequestDispatcher rd = req.getRequestDispatcher("gettingMovies");
 					   try {
 						rd.include(req, resp);
@@ -43,7 +44,7 @@ public class userLogIn extends HttpServlet{
 				   else
 				   {
 					   req.setAttribute("message", "password is wrong...");
-					   RequestDispatcher rd = req.getRequestDispatcher("userLogIn.jsp");
+					   RequestDispatcher rd = req.getRequestDispatcher("index.jsp");
 					   try {
 						rd.include(req, resp);
 					} catch (ServletException | IOException e) {
@@ -55,7 +56,7 @@ public class userLogIn extends HttpServlet{
 			   else
 			   {
 				   req.setAttribute("message", "Email is wrong...");
-				   RequestDispatcher rd = req.getRequestDispatcher("userLogIn.jsp");
+				   RequestDispatcher rd = req.getRequestDispatcher("index.jsp");
 				   try {
 					rd.include(req, resp);
 				} catch (ServletException | IOException e) {

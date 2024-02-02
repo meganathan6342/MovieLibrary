@@ -53,7 +53,6 @@ div {
 </tr>
 </tbody>
 </table>
-
 </form>
 <%String msg = (String) request.getAttribute("message"); %>
 

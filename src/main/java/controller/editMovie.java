@@ -1,4 +1,4 @@
-package JServlets;
+package controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -9,8 +9,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import DAO.movieDAO;
+import DTO.adminDTO;
 import DTO.movieDTO;
 
 @WebServlet("/editMovie")
@@ -21,17 +23,24 @@ public class editMovie extends HttpServlet{
 		
 		  int movieid = Integer.parseInt(req.getParameter("id"));
 		  
-		  movieDTO m1 = new movieDTO();
-		  m1.setMovieid(movieid);
-		  
-		  movieDAO m2 = new movieDAO();
-		  
 		  try {
-			  
-			req.setAttribute("movie", m2.findById(movieid));
+			HttpSession session = req.getSession();
+			adminDTO adminemail = (adminDTO) session.getAttribute("adminemail");
 			
-			RequestDispatcher rd = req.getRequestDispatcher("edit.jsp");
-			rd.include(req, resp);
+			if(adminemail!=null)
+			{
+				movieDAO m2 = new movieDAO();
+				req.setAttribute("movie", m2.findById(movieid));
+				
+				RequestDispatcher rd = req.getRequestDispatcher("edit.jsp");
+				rd.include(req, resp);
+			}
+			else
+			{
+				req.setAttribute("message", "login is required..");
+				RequestDispatcher rd = req.getRequestDispatcher("adminLogIn.jsp");
+				rd.include(req, resp);
+			}
 			
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block

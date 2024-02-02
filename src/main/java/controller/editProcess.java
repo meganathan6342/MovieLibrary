@@ -1,4 +1,4 @@
-package JServlets;
+package controller;
 
 import java.io.IOException;
 import java.sql.Blob;
@@ -48,7 +48,7 @@ public class editProcess extends HttpServlet{
 			  
 			m2.editMovie(m1);
 			req.setAttribute("movies", m2.getAllMovies());
-			RequestDispatcher rd = req.getRequestDispatcher("adminHome.jsp");
+			RequestDispatcher rd = req.getRequestDispatcher("adminPage.jsp");
 			rd.include(req, resp);
 			
 		} catch (ClassNotFoundException | SQLException e) {

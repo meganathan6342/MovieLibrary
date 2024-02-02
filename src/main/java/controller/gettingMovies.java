@@ -1,4 +1,4 @@
-package JServlets;
+package controller;
 
 import java.io.IOException;
 import java.util.List;
@@ -23,9 +23,10 @@ public class gettingMovies extends HttpServlet{
 		  
 		  movieDAO m1 = new movieDAO();
 		  List<movieDTO> m2 = m1.getAllMovies();
+		  String useremail = (String) req.getAttribute("user");
 		  req.setAttribute("movies", m2);
-		  
-		  RequestDispatcher rd = req.getRequestDispatcher("ottHome.jsp");
+		  req.setAttribute("user", useremail);
+		  RequestDispatcher rd = req.getRequestDispatcher("Home.jsp");
 		  rd.include(req, resp);
 	}
 }

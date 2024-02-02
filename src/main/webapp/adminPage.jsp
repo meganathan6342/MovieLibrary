@@ -1,6 +1,7 @@
 <%@page import="java.util.Base64"%>
 <%@page import="java.util.List"%>
 <%@page import="DTO.movieDTO"%>
+<%@page import="DTO.adminDTO" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -31,6 +32,7 @@ a:hover {
 <h1 style="text-align: center;">Admin Home</h1>
 
 <% List<movieDTO> movies = (List) request.getAttribute("movies"); %>
+<% adminDTO admin = (adminDTO) request.getAttribute("admin"); %>
 <table>
 <thead>
 <tr>
@@ -45,7 +47,6 @@ a:hover {
 <th>Edit</th>
 </tr>
 </thead>
-
 <tbody>
 
 <%for(movieDTO m : movies) { %>
@@ -66,12 +67,15 @@ a:hover {
 <%} %>
 </tbody>
 </table>
-
+<a href="addMovie.jsp">Add Movie</a>
+<a href="personal?email=<%= admin.getAdminemail()%>">Personal</a>
+<a href="adminNewPWord?email=<%= admin.getAdminemail()%>">Change Password</a>
+<a href="logOut">Log Out</a>
 <% String msg = (String) request.getAttribute("message"); %>
 <% if(msg!=null) { %>
 <%= msg %>
 <% } %>
+<br><br>
 
-<a href="addMovie.jsp">Add Movie</a>
 </body>
 </html>
