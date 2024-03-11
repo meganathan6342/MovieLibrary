@@ -4,55 +4,49 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Admin SignUp</title>
-<link rel="stylesheet" type="text/css" href="CSS_Files/adminSignUp.css">
-
+<title>Sign Up</title>
+<link rel="stylesheet" type="text/css" href="CSS_Files/signup.css">
+<link rel="icon" href="images/user.png">
 </head>
 <body>
-<div>
- <form action="adminServlet" method="post">
+<div id="sigup">
+ <form action="adminSignUp" method="post">
  <table>
  <tbody>
+    <tr><td><h2><i>Welcome Admin</i></h2></td></tr>
  <tr>
- <td><label>ID *</label></td>
- </tr>
- <tr>
- <td><input type="number" name="id" required="required" class="inp"></td>
- </tr>
- <tr>
- <td><label>Name *</label></td>
+ <td><input type="number" name="id" required class="inp" placeholder="Id"></td>
  </tr>
   <tr>
-  <td><input type="text" name="name" required="required" class="inp"></td>
-  </tr>
-  <tr>
-  <td><label>Contact *</label></td>
+  <td><input type="text" name="name" required="required" class="inp" placeholder="Name"></td>
   </tr>
    <tr>
-   <td><input type="tel" name="contact" required="required" class="inp"></td>
-   </tr>
-   <tr>
-   <td><label>Email *</label></td>
+   <td><input type="tel" name="contact" required="required" class="inp" placeholder="Contact"></td>
    </tr>
     <tr>
-    <td><input type="email" name="email" required="required" class="inp"></td>
-    </tr>
-    <tr>
-    <td><label>Password *</label></td>
+    <td><input type="email" name="email" required="required" class="inp" placeholder="Email"></td>
     </tr>
      <tr>
-     <td><input type="password" name="password" required="required" class="inp"></td>
+     <td><input type="password" name="password" required="required" class="inp" placeholder="Password"></td>
      </tr>
      <tr>
-     <td><input type="submit" class="button"></td>
+     <td style="text-align: right;"><input type="submit" value="Next" class="button"></td>
      </tr>
+     <tr>
+        <td>
+        <p style="color: red;"><% String msg = (String) request.getAttribute("message"); %>
+ 			<% if(msg != null) { %>
+ 			<%= msg %>
+ 			<% } %></p>
+        </td>
+    </tr>
+     <tr>
+        <td><h4>or</h4></td>
+     </tr>
+     <tr><td><a href="adminLogIn.jsp">login</a></td></tr>
  </tbody>
  </table>
  </form>
- <% String msg = (String) request.getAttribute("message"); %>
- <%if(msg!=null){%>
- <%=msg %>
- <%} %>
 </div>
 </body>
 </html>

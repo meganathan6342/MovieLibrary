@@ -4,9 +4,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Page Not Found</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="icon" href="images/error.png">
 <style>
+body{
+	background-color: rgb(233,233,233);
+}
 h1{
      text-align: center;
      font-style:  italic;
@@ -20,10 +24,11 @@ p{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    box-shadow: 4px 4px 4px rgb(223,223,223);
 }
 #img{
-    width: 75vh;
-    
+    height: 500px;
+    width: 750px;
 }
 </style>
 </head>
@@ -36,7 +41,7 @@ p{
 <p><b><i>Please check the URL you might have missed some elements in URL...</i></b></p>
 </div>
 <div id="img-container">
-<img alt="image is loading" src="images/error1.jpeg" id="img">
+<img alt="image is loading" src="images/error.jpg" id="img">
 </div>
 
 <!-- Bootstrap JS and dependencies (optional, but used in some Bootstrap features) -->

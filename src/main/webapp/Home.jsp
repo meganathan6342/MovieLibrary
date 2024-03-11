@@ -8,7 +8,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Home Page</title>
+<link rel="icon" href="images/logo.png">
 <style>
 div{
     position: absolute;
@@ -42,12 +43,17 @@ Language:<%= movie.getMovielanguage() %><br><br>
 <a href="downloads?id=<%= movie.getMovieid() %>&user=<%= useremail %>">Save</a> <br><br>
 
 <br>
+<a href="userPersonal?email=<%= useremail %>">personal</a>
+<a href="userNewPWord?email=<%= useremail%>">Change Password</a>
+<a href="userLogOut">Log Out</a>
 <%} %>
 <a href="gettingDownloads?email=<%= useremail%>">downloads</a>
 <% String msg = (String) request.getAttribute("message"); %>
 <% if(msg!=null) { %>
 <%= msg %>
 <% } %>
+</div>
+<div>
 </div>
 </body>
 </html>

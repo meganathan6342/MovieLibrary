@@ -11,48 +11,48 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import DAO.adminDAO;
 import DAO.movieDAO;
-import DTO.adminDTO;
+import DAO.userDAO;
+import DTO.userDTO;
 
-@WebServlet("/editAdmin")
-public class editAdmin extends HttpServlet{
+@WebServlet("/editUser")
+public class editUser extends HttpServlet{
 
-	  @Override
+	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		  String adminemail = req.getParameter("adminemail");
-		  String adminname = req.getParameter("adminname");
-		  long admincontact = Long.parseLong(req.getParameter("admincontact"));
+		  String useremail = req.getParameter("useremail");
+		  String username = req.getParameter("username");
+		  long usercontact = Long.parseLong(req.getParameter("usercontact"));
 		  
-		  adminDTO a1 = new adminDTO();
-		  a1.setAdminemail(adminemail);
-		  a1.setAdminname(adminname);
-		  a1.setAdmincontact(admincontact);
+		  userDTO u1 = new userDTO();
+		  u1.setUseremail(useremail);
+		  u1.setUsername(username);
+		  u1.setUsercontact(usercontact);
 		  
 		  HttpSession session = req.getSession();
-		  String mail = (String) session.getAttribute("adminemail");
+		  String mail = (String) session.getAttribute("useremail");
 		  
 		  if(mail!=null)
 		  {
 			  try {
 				  
-				  adminDAO a2 = new adminDAO();
-				  int res = a2.editAdmin(a1);
-				  adminDTO a3 = a2.findByEmail(adminemail);
+				  userDAO u2 = new userDAO();
+				  int res = u2.editUser(u1);
+				  userDTO u3 = u2.findByEmail(useremail);
 				  
 				  if(res > 0)
 				  {
 					  req.setAttribute("movies", new movieDAO().getAllMovies());
-					  req.setAttribute("admin", a3);
-					  RequestDispatcher rd = req.getRequestDispatcher("adminPage.jsp");
+					  req.setAttribute("user", u3.getUseremail());
+					  RequestDispatcher rd = req.getRequestDispatcher("Home.jsp");
 					  rd.include(req, resp);
 				  }
 				  else
 				  {
-					  req.setAttribute("admin", a3);
+					  req.setAttribute("user", u3.getUseremail());
 					  req.setAttribute("message", "edit is not done");
-					  RequestDispatcher rd = req.getRequestDispatcher("editAdmin.jsp");
+					  RequestDispatcher rd = req.getRequestDispatcher("editUser.jsp");
 					  rd.include(req, resp);
 				  }
 				  

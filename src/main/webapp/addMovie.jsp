@@ -1,69 +1,54 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<!-- <%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%> -->
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<style>
-table {
-     border: 2px solid black;
-     background-color: lime;
-}
-div {
-	position: absolute;
-	text-align: center;
-	top: 120px;
-	left: 500px;
-}
-.button:hover {
-	background-color: gray;
-}
-</style>
+<title>Add Movie</title>
+<link rel="stylesheet" href="CSS_Files/movie.css">
+<link rel="icon" href="images/logo.png">
 </head>
 <body>
- <div>
- <h1 style="text-align: center;">Add movies</h1>
+ <div id="movie">
  <form action="saveMovie" method="post" enctype="multipart/form-data">
- 
  <table>
  <tbody>
+    <tr><td><h2>Add a movie</h2></td></tr>
  <tr>
- <td><label>Movie ID *</label></td>
- <td><input type="number" name="movieid" required="required" placeholder="e.g:01"></td>
+ <td><input type="number" name="movieid" required="required" placeholder="Movie Id" class="inp"></td>
  </tr>
  <tr>
- <td><label>Movie Name *</label></td>
- <td><input type="text" name="moviename" required="required" placeholder="e.g:Vada Chennai"></td>
+ <td><input type="text" name="moviename" required="required" placeholder="Movie Name" class="inp"></td>
  </tr>
  <tr>
- <td><label>Movie Rating *</label></td>
- <td><input type="tel" name="movierating" required="required" placeholder="e.g:9.2"></td>
+ <td><input type="tel" name="movierating" required="required" placeholder="Movie Rating" class="inp"></td>
  </tr>
  <tr>
- <td><label>Movie Price *</label></td>
- <td><input type="tel" name="movieprice" required="required" placeholder="e.g:250"></td>
+ <td><input type="tel" name="movieprice" required="required" placeholder="Movie Price" class="inp"></td>
  </tr>
  <tr>
- <td><label>Movie Genre *</label></td>
- <td><input type="text" name="moviegenre" required="required" placeholder="e.g:gangstar drama"></td>
+ <td><input type="text" name="moviegenre" required="required" placeholder="Movie Genre" class="inp"></td>
  </tr>
  <tr>
- <td><label>Movie Language *</label></td>
- <td><input type="text" name="movielanguage" required="required" placeholder="e.g:Tamil"></td>
+ <td><input type="text" name="movielanguage" required="required" placeholder="Movie Language" class="inp"></td>
  </tr>
+ <tr><td style="text-align: left;">Movie Image</td></tr>
  <tr>
- <td><label>Movie Image *</label></td>
  <td><input type="file" name="movieimage" required="required"></td>
  </tr>
  <tr>
- <td><input type="submit" class="button"><input type="reset" class="button"></td>
+ <td style="text-align: right;"><input type="submit" value="Complete" class="button"></td>
+ </tr>
+ <tr>
+ <td>
+ <p style="color: red;"><% String msg = (String) request.getAttribute("message"); %>
+ <% if(msg != null) { %>
+ <%= msg %>
+ <% } %></p>
+ </td>
  </tr>
  </tbody>
- </table><br>
- 
- <!-- <a href="adminHome.jsp">Movie_List</a> -->
-
+ </table>
  </form>
  </div>
 </body>

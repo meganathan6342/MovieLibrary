@@ -14,7 +14,7 @@ import DTO.adminDTO;
 
 
 
-@WebServlet("/adminServlet")
+@WebServlet("/adminSigUp")
 public class adminSignUp extends HttpServlet{
 
 	  @Override

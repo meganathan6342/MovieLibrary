@@ -1,4 +1,4 @@
-<%@page import="DTO.adminDTO"%>
+<%@page import="DTO.userDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -11,15 +11,15 @@
 </head>
 <body>
 <div id="password">
-<% adminDTO admin = (adminDTO) request.getAttribute("admin"); %>
-<form action="velifyContactAFPW" method="post">
+<% userDTO user = (userDTO) request.getAttribute("user"); %>
+<form action="velifyContactUFPW" method="post">
 <table>
 <tbody>
 <tr>
-<td><input type="email" name="email" value="<%= admin.getAdminemail()%>" style="display: none;" class="inp"></td>
+<td><input type="email" name="email" value="<%= user.getUseremail()%>" style="display: none;" class="inp"></td>
 </tr>
 <tr>
-<td>Enter the mobile number that should be connected with <%= admin.getAdminemail() %></td>
+<td>Enter the mobile number that should be connected with <%= user.getUseremail() %></td>
 </tr>
 <tr>
 <td><input type="tel" name="contact" required placeholder="Mobile Number" class="inp"></td>

@@ -7,7 +7,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Downloads</title>
+<link rel="icon" href="images/logo.png">
 <style>
 table {
 	border: 1px solid black;

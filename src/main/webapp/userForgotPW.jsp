@@ -10,7 +10,7 @@
 </head>
 <body>
 <div id="password">
-    <form action="velifyEmailAFPW" method="post">
+    <form action="velifyEmailUFPW" method="post">
         <table>
         <tbody>
         <tr>

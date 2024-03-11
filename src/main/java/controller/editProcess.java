@@ -46,10 +46,21 @@ public class editProcess extends HttpServlet{
 		  
 		  try {
 			  
-			m2.editMovie(m1);
-			req.setAttribute("movies", m2.getAllMovies());
-			RequestDispatcher rd = req.getRequestDispatcher("adminPage.jsp");
-			rd.include(req, resp);
+			int res = m2.editMovie(m1);
+			
+			if(res > 0)
+			{
+				req.setAttribute("movies", m2.getAllMovies());
+				RequestDispatcher rd = req.getRequestDispatcher("adminPage.jsp");
+				rd.include(req, resp);
+			}
+			else
+			{
+				req.setAttribute("movie", m2.findById(movieid));
+				req.setAttribute("message", "edit process is not done properly");
+				RequestDispatcher rd = req.getRequestDispatcher("edit.jsp");
+				rd.include(req, resp);
+			}
 			
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block

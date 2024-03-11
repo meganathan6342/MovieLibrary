@@ -13,7 +13,6 @@ import javax.servlet.http.HttpSession;
 
 import DAO.movieDAO;
 import DTO.adminDTO;
-import DTO.movieDTO;
 
 @WebServlet("/editMovie")
 public class editMovie extends HttpServlet{
@@ -25,7 +24,7 @@ public class editMovie extends HttpServlet{
 		  
 		  try {
 			HttpSession session = req.getSession();
-			adminDTO adminemail = (adminDTO) session.getAttribute("adminemail");
+			String adminemail = (String) session.getAttribute("adminemail");
 			
 			if(adminemail!=null)
 			{

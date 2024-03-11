@@ -10,30 +10,29 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import DAO.adminDAO;
-import DTO.adminDTO;
+import DAO.userDAO;
+import DTO.userDTO;
 
-@WebServlet("/personal")
-public class personal extends HttpServlet{
+@WebServlet("/userNewPWord")
+public class userNewPWord extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		  String email = req.getParameter("email");
-		  
-		  adminDAO a1 = new adminDAO();
-		  try {
-			  
-			adminDTO a2 =  a1.findByEmail(email);
+		String useremail = req.getParameter("email");
+		
+		userDAO u1 = new userDAO();
+		try {
 			
-			req.setAttribute("admin", a2);
-			RequestDispatcher rd = req.getRequestDispatcher("editAdmin.jsp");
+			userDTO u2 = u1.findByEmail(useremail);
+			
+			req.setAttribute("user", u2);
+			RequestDispatcher rd = req.getRequestDispatcher("userNPWProcess.jsp");
 			rd.include(req, resp);
 			
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		  
 	}
 }

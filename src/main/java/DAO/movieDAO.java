@@ -128,7 +128,7 @@ public class movieDAO {
 		return m;
 	}
 	
-	public void editMovie(movieDTO m) throws ClassNotFoundException, SQLException
+	public int editMovie(movieDTO m) throws ClassNotFoundException, SQLException
 	{
 		Connection con = getConnection();
 		
@@ -171,9 +171,11 @@ public class movieDAO {
 			
 		}
 		
-		st.executeUpdate();
+		int res = st.executeUpdate();
 		
 		con.close();
+		
+		return res;
 	}
 
 	public int saveDownload(movieDTO m, String useremail) throws ClassNotFoundException, SQLException 

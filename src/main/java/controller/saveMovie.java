@@ -41,11 +41,19 @@ public class saveMovie extends HttpServlet{
 		
 		movieDAO m2 = new movieDAO();
 		
-		m2.saveMovie(m1);
-		req.setAttribute("movies", m2.getAllMovies());
+		int res =  m2.saveMovie(m1);
 		
-		RequestDispatcher rd = req.getRequestDispatcher("adminPage.jsp");
-		rd.include(req, resp);
+		if(res > 0)
+		{
+			req.setAttribute("movies", m2.getAllMovies());
+			
+			RequestDispatcher rd = req.getRequestDispatcher("adminPage.jsp");
+			rd.include(req, resp);
+		}
+		else
+		{
+			req.setAttribute("message", "Movie Id or movie is already presented..");
+		}
 		
 		
 	}

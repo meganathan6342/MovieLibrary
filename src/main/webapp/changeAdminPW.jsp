@@ -5,32 +5,42 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Changing Password</title>
+<link rel="stylesheet" href="CSS_Files/password.css">
+<link rel="icon" href="images/user.png">
 </head>
 <body>
-<% adminDTO admin = (adminDTO) request.getAttribute("admin"); %>
-
+<div id="password">
+    <% adminDTO admin = (adminDTO) request.getAttribute("admin"); %>
 <form action="changeAdminPW" method="post">
 <table>
 <tbody>
 <tr>
-<td><input type="email" name="email" value="<%= admin.getAdminemail()%>" style="display: none;"></td>
+<td><input type="email" name="email" value="<%= admin.getAdminemail()%>" style="display: none;" class="inp"></td>
 </tr>
 <tr>
-<td><input type="password" name="newpass" required placeholder="New Password"></td>
+<td><input type="password" name="newpass" required placeholder="New Password" class="inp"></td>
 </tr>
 <tr>
-<td><input type="password" name="confirmpass" required placeholder="Confirm Password"></td>
+<td><input type="password" name="confirmpass" required placeholder="Confirm Password" class="inp"></td>
 </tr>
 <tr>
-<td><input type="submit" value="next"></td>
+    <td><a href="adminForgetPW.jsp">Forgot Password</a></td>
+</tr>
+<tr>
+<td style="text-align: right;"><input type="submit" value="Next" id="button"></td>
+</tr>
+<tr>
+    <td>
+        <p><% String msg = (String) request.getAttribute("message"); %>
+            <% if(msg!=null) { %>
+            <%= msg %>
+            <% } %></p>
+    </td>
 </tr>
 </tbody>
 </table>
 </form>
-<% String msg = (String) request.getAttribute("message"); %>
-<% if(msg!=null) { %>
-<%= msg %>
-<% } %>
+</div>
 </body>
 </html>

@@ -10,10 +10,10 @@
 </head>
 <body>
  <div id="login">
-    <form action="adminLogIn" method="post">
+    <form action="userLogIn" method="post">
         <table>
         <tbody>
-        <tr><td><h2><i>Hello Admin</i></h2></td></tr>
+        <tr><td><h2><i>Hello User</i></h2></td></tr>
         <tr>
         <td>
         <button class="button"><i class="fa-brands fa-google"></i>  login with Google</button>
@@ -23,13 +23,13 @@
         <td><h4>or</h4></td>
         </tr>
         <tr>
-        <td><input type="email" name="email" required="required" placeholder="Email" class="inp"></td>
+        <td><input type="email" name="useremail" required="required" placeholder="Email" class="inp"></td>
         </tr>
         <tr>
-        <td><input type="password" name="password" required="required" placeholder="Password" class="inp"></td>
+        <td><input type="password" name="userpassword" required="required" placeholder="Password" class="inp"></td>
         </tr>
         <tr>
-        <td style="text-align: left;"><a href="adminForgotPW.jsp">forgot password</a></td>
+        <td style="text-align: left;"><a href="userForgotPW.jsp">forgot password</a></td>
         </tr>
         <tr>
         <td style="text-align: right;"><input type="submit" id="button" value="Next"></td>
@@ -49,7 +49,7 @@
                 </fieldset>
             </td>
         </tr>
-        <tr><td><a href="adminSignUp.jsp">New ?</a></td></tr>
+        <tr><td><a href="userSignUp.jsp">New ?</a></td></tr>
         </tbody>
         </table>
         </form>

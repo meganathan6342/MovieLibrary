@@ -66,7 +66,53 @@ public class userDAO {
 		
 		con.close();
 		
-		return u1;
+		return u1;	
+	}
+	
+	public int editUser(userDTO u) throws SQLException, ClassNotFoundException
+    {
+   	 Connection con = getConnection();
+   	 
+   	 PreparedStatement st = con.prepareStatement("update user set username = ?, usercontact = ? where useremail = ?");
+   	 
+   	 st.setString(1, u.getUsername());
+   	 st.setLong(2, u.getUsercontact());
+   	 st.setString(3, u.getUseremail());
+   	 
+   	 int res = st.executeUpdate();
+   	 return res;
+    }
+	
+	public int changePassword(String email, String pass) throws ClassNotFoundException, SQLException 
+	{
 		
+		Connection con = getConnection();
+		
+		PreparedStatement st = con.prepareStatement("update user set userpassword = ? where useremail = ?");
+		
+		st.setString(1, pass);
+		st.setString(2, email);
+		
+		int res = st.executeUpdate();
+		
+		con.close();
+		
+		return res;
+	}
+	
+	public int forgotPasssword(userDTO user) throws SQLException, ClassNotFoundException
+	{
+		Connection con = getConnection();
+		
+		PreparedStatement st = con.prepareStatement("update user set userpassword = ? where useremail = ?");
+		
+		st.setString(1, user.getUserpassword());
+		st.setString(2, user.getUseremail());
+		
+		int res = st.executeUpdate();
+		
+		con.close();
+		
+		return res;
 	}
 }

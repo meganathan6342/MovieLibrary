@@ -1,113 +1,134 @@
-body{
-    background-image: url("sunset-5333758_1920.jpg");
-    background-size: 100%;
+@charset "UTF-8";
+*{
+    margin: 0px;
 }
-main{
+#bg-image{
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.6;
+}
+#navigation{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 809px;
+}
+#content{
+    position: absolute;
+    width: 1349px;
+    top: 0px;
+    left: 0px;
     display: flex;
-    height: 80px;
-    background-color: rgba(0,0,255,0.3);
-}
-section > i,h1{
-    color: red;
 }
 #left{
-    width: 5%;
+    width: 60%;
+    height: 100vh;
 }
-#mid{
-    width: 70%;
+#left-content > h1{
+    text-align: center;
+}
+#left-content > p{
+    width: 700px;
+    padding: 10px 50px;
+    line-height: 1.5;
+    font-size: 18px;
+    word-spacing: 4px;
+    letter-spacing: 2px;
+    text-indent: 70px;
+}
+#ott{
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#navigation{
+    display: flex;
+    background-color: rgb(24, 23, 23);
+    height: 60px;
+}
+#navigation > #heading{
+    width: 50%;
+    padding-left: 30px;
+    color: red;
+    font-weight: bolder;
+    font-size: 20px;
+    line-height: 60px;
+}
+#navigation > #nav{
+    width: 50%;
+}
+#nav{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+#nav  button{
+    height: 30px;
+    width: 80px;
+    border-radius: 10px;
+    border-style: none;
+    transition: 0.2s;
+}
+#nav button:hover{
+    transform: scale(1.03);
+}
+#nav > section > a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+#nav > section > button > a{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 17px;
+}
+#nav > section > a:hover{
+    color: rgb(200, 200, 200);
+}
+#left-content{
+    position: absolute;
+    top: 70px;
 }
 #right{
-    width: 25%;
-}
-h1{
-    font-size: 40px;
-    line-height: 10px;
-    font-family: sans-serif;
-}
-nav{
-    word-spacing: 20px;
-    position: absolute;
-    line-height: 80px;
-    
-}
-#page{
-	padding: 40px 490px;
-	height: 100vh;
-}
-#admin {
-	height: 50px;
-	width: 108px;
-	border-radius: 50px;
-	border-style: none;
-	background-color: white;
-}
-#admin:hover{
-    background-color: rgba(255,255,255,0.8);
-    background-size: 20px;
-}
-a[id="admin"]{
-    font-size: 25px;
-    text-decoration: none;
-    color: black;
-    font-weight: bolder;
-}
-nav > a{
-	text-decoration: none;
-	font-size: 18px;
-	color: black;
-}
-nav > a:hover{
-    color: rgba(0,0,0,0.6);
-}
-#signup{
-    color: black;
-    text-decoration: none;
-}
-.button {
-	border-radius: 8px;
-}
-.button:hover{
-    background-color: gray;
+    width: 40%;
+    height: 100vh;
+    background-color: rgb(3, 37, 3);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     color: white;
 }
-table{
-    border: 10px solid black;
-    border-radius: 25px;
-    border-bottom-style: none;
-    border-left-style: none;
-    text-align: center;
-    padding: 40px 80px;
-    background-color: rgba(255,255,255,0.3);
+#right:last-child  i[class$="film"]{
+    display: block;
 }
-td{
-    padding: 10px;
+#right:last-child p{
+    display: inline;
 }
-.inp{
-    border-top-style: none;
-    border-left-style: none;
-    border-right-style: none;
-    border-radius: 4px;
-    background-color: rgba(255,255,255,0.6);
+#right:nth-child(2) button{
+    height: 40px;
+    width: 200px;
+    border-radius: 5px;
+    border-style: none;
+    background-color: blue;
+    transition: 100ms;
+    margin-right: 10px;
 }
-fieldset {
-	border-bottom-style: none;
-	border-left-style: none;
-	border-right-style: none;
-	text-align: center;
-}
-footer{
-    background-color: white;
-    display: flex;
-    height: 100px;
-}
-footer > section{
-    line-height: 70px;
-    word-spacing: 20px;
-}
-footer > section > a{
+#right:nth-child(2) button a{
+    color: white;
     text-decoration: none;
-    color: black;
+    font-weight: bolder;
+    font-size: 16px;
 }
-footer > section > a:hover{
-    color: gray;
+#right:nth-child(2) button:hover{
+    transform: scale(1.01);
+    background-color: rgb(1, 1, 190);
+    box-shadow: 2px 2px 5px black;
+}
+#right:last-child a {
+    color: rgb(116, 112, 112);
+}
+#right:last-child a:hover {
+    color: darkgray;
 }

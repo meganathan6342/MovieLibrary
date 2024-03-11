@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("/logOut")
-public class logOut extends HttpServlet{
+@WebServlet("/adminLogOut")
+public class adminLogOut extends HttpServlet{
 
 	  @Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

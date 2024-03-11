@@ -4,64 +4,49 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<style>
-table{
-	border: 2px solid black;
-	background-color: silver;
-}
-.button:hover {
-	background-color: gray;
-}
-div {
-	position: absolute;
-	text-align: center;
-	top: 210px;
-	left: 520px;
-}
-</style>
+<title>Sign Up</title>
+<link rel="stylesheet" type="text/css" href="CSS_Files/signup.css">
+<link rel="icon" href="images/user.png">
 </head>
 <body>
-
-<div>
-<form action="userSignUp" method="post">
-
-<table>
-<tbody>
-<tr>
-<td><label>User ID *</label></td>
-<td><input type="number" name="userid" required="required" placeholder="e.g:01"></td>
-</tr>
-<tr>
-<td><label>User Name *</label></td>
-<td><input type="text" name="username" required="required" placeholder="e.g:Maganathan"></td>
-</tr>
-<tr>
-<td><label>User Contact *</label></td>
-<td><input type="tel" name="usercontact" required="required" placeholder="e.g:1234567890"></td>
-</tr>
-<tr>
-<td><label>User Email *</label></td>
-<td><input type="email" name="useremail" required="required" placeholder="e.g:abc123@gmail.com"></td>
-</tr>
-<tr>
-<td><label>User Password *</label></td>
-<td><input type="password" name="userpassword" required="required" placeholder="e.g:Ajgsy&{742_;s}"></td>
-</tr>
-<tr>
-<td><input type="submit" class="button"> <input type="reset" class="button"></td>
-</tr>
-</tbody>
-</table>
-</form>
-<%String msg = (String) request.getAttribute("message"); %>
-
-<%if(msg!=null){ %>
-
-<%=msg %>
-<%} %>
-
+<div id="sigup">
+ <form action="userSignUp" method="post">
+ <table>
+ <tbody>
+    <tr><td><h2><i>Welcome User</i></h2></td></tr>
+ <tr>
+ <td><input type="number" name="userid" required class="inp" placeholder="Id"></td>
+ </tr>
+  <tr>
+  <td><input type="text" name="username" required="required" class="inp" placeholder="Name"></td>
+  </tr>
+   <tr>
+   <td><input type="tel" name="usercontact" required="required" class="inp" placeholder="Contact"></td>
+   </tr>
+    <tr>
+    <td><input type="email" name="useremail" required="required" class="inp" placeholder="Email"></td>
+    </tr>
+     <tr>
+     <td><input type="password" name="userpassword" required="required" class="inp" placeholder="Password"></td>
+     </tr>
+     <tr>
+     <td style="text-align: right;"><input type="submit" value="Next" class="button"></td>
+     </tr>
+     <tr>
+        <td>
+        <p style="color: red;"><% String msg = (String) request.getAttribute("message"); %>
+ 			<% if(msg != null) { %>
+ 			<%= msg %>
+ 			<% } %></p>
+        </td>
+    </tr>
+     <tr>
+        <td><h4>or</h4></td>
+     </tr>
+     <tr><td><a href="userLogin.jsp">login</a></td></tr>
+ </tbody>
+ </table>
+ </form>
 </div>
-
 </body>
 </html>

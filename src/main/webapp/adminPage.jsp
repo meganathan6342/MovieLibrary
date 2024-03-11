@@ -8,7 +8,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Admin HomePage</title>
+<link rel="icon" href="images/logo.png">
 <style>
 table,th{
     border: 1px solid black;
@@ -33,6 +34,7 @@ a:hover {
 
 <% List<movieDTO> movies = (List) request.getAttribute("movies"); %>
 <% adminDTO admin = (adminDTO) request.getAttribute("admin"); %>
+<% response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); %>
 <table>
 <thead>
 <tr>
@@ -68,9 +70,9 @@ a:hover {
 </tbody>
 </table>
 <a href="addMovie.jsp">Add Movie</a>
-<a href="personal?email=<%= admin.getAdminemail()%>">Personal</a>
+<a href="adminPersonal?email=<%= admin.getAdminemail() %>">personal</a>
 <a href="adminNewPWord?email=<%= admin.getAdminemail()%>">Change Password</a>
-<a href="logOut">Log Out</a>
+<a href="adminLogOut">Log Out</a>
 <% String msg = (String) request.getAttribute("message"); %>
 <% if(msg!=null) { %>
 <%= msg %>

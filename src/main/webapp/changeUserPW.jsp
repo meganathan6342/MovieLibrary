@@ -1,4 +1,4 @@
-<%@page import="DTO.adminDTO"%>
+<%@page import="DTO.userDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -6,32 +6,29 @@
 <head>
 <meta charset="UTF-8">
 <title>Changing Password</title>
-<link rel="stylesheet" href="CSS_Files/password.css">
 <link rel="icon" href="images/user.png">
+<link rel="stylesheet" href="CSS_Files/password.css">
 </head>
 <body>
 <div id="password">
-    <% adminDTO admin = (adminDTO) request.getAttribute("admin"); %>
-<form action="adminNPWProcess" method="post">
+    <% userDTO user = (userDTO) request.getAttribute("user"); %>
+<form action="changeUserPW" method="post">
     <table>
     <tbody>
     <tr>
-    <td><input type="email" name="adminemail" value="<%= admin.getAdminemail() %>" style="display: none;"></td>
-    </tr>
-    <tr>
-    <td><input type="password" name="adminpassword" required placeholder="Old Password" class="inp"></td>
+    <td><input type="email" name="email" value="<%= user.getUseremail()%>" style="display: none;"></td>
     </tr>
     <tr>
     <td><input type="password" name="newpass" required placeholder="New Password" class="inp"></td>
     </tr>
     <tr>
-    <td><input type="password" name="confirmpass" required placeholder="Ponfirm Password" class="inp"></td>
+    <td><input type="password" name="confirmpass" required placeholder="Confirm Password" class="inp"></td>
     </tr>
     <tr>
-    <td><a href="adminForgotPW.jsp">forgot password</a></td>
+    <td><a href="userForgetPW.jsp">Forgot Password</a></td>
     </tr>
     <tr>
-    <td style="text-align: right;"><input type="submit" value="Confirm" id="button"></td>
+    <td style="text-align: right;"><input type="submit" value="Next" id="button"></td>
     </tr>
     <tr>
         <td>

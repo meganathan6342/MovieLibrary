@@ -119,15 +119,4 @@ public class adminDAO {
 		
 		return res;
 	}
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
 }

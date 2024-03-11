@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import DAO.userDAO;
 import DTO.userDTO;
@@ -32,6 +33,8 @@ public class userLogIn extends HttpServlet{
 			   {
 				   if(u2.getUserpassword().equals(userpassword))
 				   {
+					   HttpSession session = req.getSession();
+					   session.setAttribute("useremail", u2.getUseremail());
 					   req.setAttribute("user", useremail);
 					   RequestDispatcher rd = req.getRequestDispatcher("gettingMovies");
 					   try {
@@ -44,7 +47,7 @@ public class userLogIn extends HttpServlet{
 				   else
 				   {
 					   req.setAttribute("message", "password is wrong...");
-					   RequestDispatcher rd = req.getRequestDispatcher("index.jsp");
+					   RequestDispatcher rd = req.getRequestDispatcher("userLogin.jsp");
 					   try {
 						rd.include(req, resp);
 					} catch (ServletException | IOException e) {
@@ -56,7 +59,7 @@ public class userLogIn extends HttpServlet{
 			   else
 			   {
 				   req.setAttribute("message", "Email is wrong...");
-				   RequestDispatcher rd = req.getRequestDispatcher("index.jsp");
+				   RequestDispatcher rd = req.getRequestDispatcher("userLogin.jsp");
 				   try {
 					rd.include(req, resp);
 				} catch (ServletException | IOException e) {
